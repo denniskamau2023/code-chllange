@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cute-animals</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body >
     <header class="container">
@@ -15,20 +15,56 @@
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-        </header>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">       Cute animal voting!!</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn btn-outline-danger" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
     <main>
-        <ul class="char">
-
+      <div class="Row">
+        <h1> ALL ANIMALS</h1>
+        <ul id="animal-list">
+            <!-- add animal names -->
         </ul>
+    </div>
+    <div id="animal-details" class="row">
+        <!-- display animal image and votes -->
+     </div>
     </main>
     <footer>
       <p>I vote for:
-      <button class="one">MR Cute</button>
-      <button class="two">MX Monkey</button>
-      <button class="three">Ms Zebra</button>
-      <button class="four">Dr Lion</button>
-      <button class="five">Mme Panda</button></p>
+      
+        
+    
+    
+    </p>
     </footer>
-    <script src="main.js"></script>
+    <script src="index.js"></script>
 </body>
-</html
+</html>

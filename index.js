@@ -1,28 +1,48 @@
-const card = document.createElement("li");
-function animalCharacters(characters){
-    card.className = "card"
+function displayOneAnimal(animal) {
+    let characterNames = document.createElement('li')
+    characterNames.innerHTML = `<button class="one">${animal.name}</button>`
+    document.querySelector("#animal-list").appendChild(characterNames)
+    characterNames.addEventListener("click", () => {
+        displayCard(animal)
+    })
+}
+function displayCard(animal) {
+    let card = document.createElement("li")
+    card.className = "card col-2 m-2"
     card.innerHTML = `
-<img src="${characters.image}" class="card-img-top" alt="${characters.name}">
-    <div class="card-body">
-      <h5 class="card-title">${characters.name}</h5>
-      <a href="#" class="btn btn-primary">votes:${characters.votes}</a>
+    <img src=${animal.image} class="card-img-top" alt=${animal.name}>
+  <div class="card-body">
+    <button href="#" id="btn${animal.id}" class="btn btn-primary">${animal.votes}</button>
     </div>
     `
+    document.querySelector("#animal-details").append(card)
+let smallbtn = document.querySelector(`#btn${animal.id}`)
+
+smallbtn.addEventListener('click' , (event) => {
+     
+let totalvotes = animal.votes + 1;
+smallbtn.textContent = totalvotes
+
+fetch(`http://localhost:3000/characters/${animal.id}`, {
+method: 'PATCH',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+    votes:  totalvotes
+})
+}).then(response => response.JSON).catch(() => { console.log('error')})
+
+})
 }
-  
-    document.querySelector(".char").append(card)
-    card.addEventListener
-
-
-function fetchcharacters(){
-    fetch("http://localhost:3000/characters")
+function getAllAnimals() {
+    fetch(" http://localhost:3000/characters")
     .then(res => res.json())
-    .then((characters) =>{
-        characters.forEach((characters) => {
-            animalCharacters(characters)
-        });
-    }) 
-
+    .then((data) => {
+        data.forEach(animal => {
+            displayOneAnimal(animal)
+        })
+    })
 }
 
-fetchcharacters()
+getAllAnimals();
